@@ -1,0 +1,151 @@
+#include <iostream> 
+#include <string> 
+using namespace std; 
+int main() { 
+int a; 
+string agdis; 
+string orders[10];  
+int orderCount = 0;  
+double prices[10]; 
+double totalCost = 0.0; 
+int totalPrice = 0; 
+int price = 0; 
+cout << "==============================\n"; 
+cout << "Welcome to KaPogian Samgyupsal\n"; 
+cout << "==============================\n\n"; 
+do { 
+cout << "Samgyupsal Packages for today:\n"; 
+cout << "1. Pork Package............1000.00\n"; 
+cout << "2. Beef Package............1500.00\n"; 
+cout << "3. Chicken Package.........1200.00\n"; 
+cout << "4. Seafoods Package........1300.00\n"; 
+cout << "5. All in One Package......6000.00\n"; 
+cout << "_____________________________________\n"; 
+cout << "Choose your Samgyupsal Package from the Menu: "; 
+cin >> a; 
+string chosen = "";  
+double chosenPrice = 0.0; 
+if (a == 1) { 
+chosen = "Pork Package  (1000.00)"; 
+chosenPrice = 1000.00; 
+cout << "You selected the Pork Package  (1000.00).\n\n"; 
+cout << "1.Fresh Meat Samgyupsal Thin or Thick Cut (500g)\n"; 
+cout << "2.Marinated Pork (500g)  \n"; 
+cout << "3.Vegetable Set\n"; 
+cout << "4.Kinds of side dishes and Bean Pasta Stew\n";  
+cout << "5.Pork Belly Lemon\n";  
+cout << "6.Marinated Bacon\n"; 
+} 
+else if (a == 2) { 
+chosen = "Beef Packagen  (1500.00)"; 
+chosenPrice = 1500.00; 
+cout << "You selected the Beef Package  (1500.00)\n\n"; 
+cout << "1.Us Marbled Beef (300g)\n";  
+cout << "2.Tender Beef (300g)\n";  
+cout << "3.Beef Belly (300g)\n";  
+cout << "4.Fresh Vegetable Set\n"; 
+cout << "5.Kinds of side dishes\n";  
+cout << "6.Kani Bacon\n";  
+} 
+else if (a == 3) { 
+chosen = "Chicken Package  (1200.00)"; 
+chosenPrice = 1200.00; 
+cout << "You selected the Chicken Package (1200.00).\n\n"; 
+cout << "1.Marinated Chicken Thin and Thick Cut\n";  
+cout << "2,Chicken Barbecue\n";  
+cout << "3.Spicy Fried Chicken\n";  
+cout << "4.Fresh Vegetable Set\n"; 
+cout << "5.Kinds of side dishes\n"; 
+cout << "6.Grill Chicken\n"; 
+} 
+else if (a == 4) { 
+chosen = "Seafoods Package  (1300.00)"; 
+chosenPrice = 1300.00; 
+cout << "You selected the Seafoods Package  (1300.00).\n\n"; 
+cout << "1.Grilled Shirmp\n"; 
+cout << "2.Squid Rings\n"; 
+cout << "3.Steamed Clams\n"; 
+cout << "4.Grilled Octopus\n"; 
+cout << "5.Spicy Tuna Sashimi\n"; 
+cout << "6.Grilled Salmon\n"; 
+} 
+else if (a == 5) { 
+chosen = "All in One Package  (6000.00)"; 
+chosenPrice = 6000.00; 
+cout << "You selected the All in One Package  (6000.00).\n\n"; 
+cout << "1.Fresh Meat Samgyupsal Thin or Thick Cut (500g)\n";  
+cout << "2.Marinated Pork (500g)\n"; 
+cout << "3.Vegetable Set\n"; 
+cout << "4.Kinds of side dishes and Bean Pasta Stew\n"; 
+cout << "5.Pork Belly Lemon\n"; 
+cout << "6.Marinated Bacon\n"; 
+cout << "7.Us Marbled Beef (300g)\n"; 
+cout << "8.Tender Beef (300g)\n"; 
+cout << "9.Beef Belly (300g)\n"; 
+cout << "10.Fresh Vegetable Set\n"; 
+cout << "11.Kinds of side dishes\n"; 
+cout << "12.Kani Bacon\n"; 
+cout << "13.Marinated Chicken Thin and Thick Cut\n"; 
+cout << "14.Chicken Barbecue\n"; 
+cout << "15.Spicy Fried Chicken\n"; 
+cout << "16.Fresh Vegetable Set\n"; 
+cout << "17.Kinds of side dishes\n"; 
+cout << "18.Grill Chicken\n"; 
+cout << "19.Grilled Shirmp\n"; 
+cout << "20.Squid Rings\n"; 
+cout << "21.Steamed Clams\n"; 
+cout << "22.Grilled Octopus\n"; 
+cout << "23.Spicy Tuna Sashimi\n"; 
+cout << "24.Grilled Salmon\n"; 
+} 
+else { 
+cout << "Invalid Choice. Please choose from 1-5.\n"; 
+} 
+if (chosen != "" && orderCount < 10) { 
+orders[orderCount] = chosen; 
+prices[orderCount] = chosenPrice; 
+totalPrice += chosenPrice; 
+orderCount++; 
+} 
+cout << "\nDo you want to order another package of Samgyupsal? (Yes/No): "; 
+cin >> agdis; 
+} while (agdis != "no" && agdis != "No"); 
+cout << "\n=======================================\n"; 
+cout << "You have ordered the following Packages:\n"; 
+for (int i = 0; i < orderCount; i++) { 
+cout << "- " << orders[i] << "\n"; 
+} 
+cout << "=======================================\n"; 
+cout << endl; 
+cout << "________________________________________\n"; 
+cout << "========================================\n"; 
+cout << "=     KaPogian Samgyupsal        =\n"; 
+cout << "========================================\n"; 
+cout << "Samgyupsal Total Price: " << totalPrice << endl; 
+int tax = totalPrice * 0.12; 
+int grandTotal = totalPrice + tax; 
+cout << "Tax (12%): " << tax << endl; 
+cout << "Total Price: " << grandTotal << endl; 
+int payment = 0; 
+do { 
+cout << "Payment: "; 
+cin >> payment; 
+if (payment < grandTotal) { 
+cout << "Insufficient payment. Please try again.\n"; 
+} 
+} while (payment < grandTotal); 
+int change = payment - grandTotal; 
+
+if (change != 0) {
+    cout << "Your change is: " << change << "\n"; 
+}
+
+else { 
+    cout << "You have payed the Exact Amount thank you!\n";
+}
+
+cout << "======================================\n"; 
+cout << "=Thank you for ordering with KaPogian=\n"; 
+cout << "======================================\n"; 
+return 0; 
+} 
