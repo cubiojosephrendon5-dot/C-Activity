@@ -1,0 +1,35 @@
+#include <iostream> 
+#include <limits> 
+using namespace std; 
+int main() 
+{  
+long ussn; 
+string ln, fn, mn, year; 
+int age; 
+cout << "=============AMA STUDENT PORTAL=============\n"; 
+cout << "========Please fill up the following========\n\n"; 
+cout << "USSN: "; 
+cin >> ussn; 
+cout << "Last Name: "; 
+cin >> ln; 
+cout << "First Name: "; 
+cin >> fn; 
+cout << "Middle Name: "; 
+cin >> mn; 
+cout << "Age: "; 
+cin >> age; 
+cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+cout << "Year and Program: "; 
+getline(cin, year); 
+cout << "===========================================\n"; 
+cout << "STUDENT INFORMATION\n"; 
+cout << "USSN: " << ussn << endl; 
+cout << "Last Name: " << ln << endl; 
+cout << "First Name: " << fn << endl; 
+cout << "Middle Name: " << mn << endl; 
+cout << "Age: " << age << endl; 
+cout << "Year and Program: " << year << endl; 
+cout << "___________________________________________\n\n"; 
+cout << "Welcome " << fn << " " << mn << " " << ln << " " << " to AMACC Lipa"; 
+return 0;
+}
